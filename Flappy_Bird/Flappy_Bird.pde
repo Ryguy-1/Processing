@@ -1,9 +1,16 @@
 //Start with a new sketch that contains setup() and draw() methods. Ask your teacher if you don't know how to do this. The suggestions under each step should help you with your program.
 
-
-
-
-
+int birdx = 328;
+int birdy= 224;
+double birdvelocity = 1;
+double gravity = 0.5;
+int pipex = 1400;
+int pipey = 300;
+int pipewidth = 200;
+int speed = 6;
+int rectheight = 150; 
+int randomheight = (int) random(100,400);
+int randomwidth = (int) random(50,300);
 void setup(){
  
 size(1200, 750);
@@ -12,16 +19,38 @@ size(1200, 750);
   
 }
 void draw(){
-   background(017, 221, 255);
-  ellipse(328,224,50,50);
+  
+
+
+ background(017, 221, 255);
+ fill(56,254,38);
+ ellipse(birdx,birdy,50,50);
+  
+
+
+ pipex -= speed;
+ pipey = randomheight;
+  fill(214,58,58);
+  rect(pipex,pipey,randomwidth,height - rectheight);
+  birdvelocity += gravity;
+  birdy += birdvelocity;
+  
+if (keyPressed && key == ' '){
+  
+  birdvelocity = -10;
+  
+}
+  if (pipex < -250){
+    
+    pipex = 1400;
+rectheight = height - rectheight;
+rectheight = (int) random(100,400);
+  } 
   
   
   
   
 }
-
-
-
 
 
 
